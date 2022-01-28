@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HMDInfoManager : MonoBehaviour
 {
 
     public GameObject mockHMD;
+    public GameObject locomotionSystem;
+
+    public bool enableContinuousMovement;
 
     void Start()
     {
@@ -22,6 +26,19 @@ public class HMDInfoManager : MonoBehaviour
         else
         {
             Debug.Log("Mock HMD active");
+        }
+
+        GameObject continuousMoveProvider = (GameObject) locomotionSystem.GetComponent<ActionBasedContinuousMoveProvider>();
+        GameObject continuousTurnProvider = locomotionSystem.GetComponent<ActionBasedContinuousTurnProvider>();
+        GameObject teleporationProvider = locomotionSystem.GetComponent<TeleportationProvider>();
+        GameObject snapTurnProvider = locomotionSystem.GetComponent<ActionBasedSnapTurnProvider>();
+        if (enableContinuousMovement)
+        {
+            continuousMoveProvider.SetActive(true);
+        }
+        else
+        {
+
         }
     }
 
