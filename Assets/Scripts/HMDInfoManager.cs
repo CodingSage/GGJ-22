@@ -28,7 +28,7 @@ public class HMDInfoManager : MonoBehaviour
             Debug.Log("Mock HMD active");
         }
 
-        GameObject continuousMoveProvider = (GameObject) locomotionSystem.GetComponent<ActionBasedContinuousMoveProvider>();
+        /*GameObject continuousMoveProvider = (GameObject) locomotionSystem.GetComponent<ActionBasedContinuousMoveProvider>();
         GameObject continuousTurnProvider = locomotionSystem.GetComponent<ActionBasedContinuousTurnProvider>();
         GameObject teleporationProvider = locomotionSystem.GetComponent<TeleportationProvider>();
         GameObject snapTurnProvider = locomotionSystem.GetComponent<ActionBasedSnapTurnProvider>();
@@ -39,7 +39,7 @@ public class HMDInfoManager : MonoBehaviour
         else
         {
 
-        }
+        }*/
     }
 
     void Update()
