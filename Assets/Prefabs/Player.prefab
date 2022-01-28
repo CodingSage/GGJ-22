@@ -642,6 +642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mockHMD: {fileID: 8263990227641270553}
+  locomotionSystem: {fileID: 2971290111826464393}
+  enableContinuousMovement: 0
 --- !u!1 &2971290111826464393
 GameObject:
   m_ObjectHideFlags: 0
