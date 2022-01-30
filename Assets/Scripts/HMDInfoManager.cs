@@ -10,8 +10,6 @@ public class HMDInfoManager : MonoBehaviour
     public GameObject mockHMD;
     public GameObject locomotionSystem;
 
-    public bool enableContinuousMovement;
-
     void Start()
     {
         if(!XRSettings.isDeviceActive)
@@ -28,18 +26,21 @@ public class HMDInfoManager : MonoBehaviour
             Debug.Log("Mock HMD active");
         }
 
-        /*GameObject continuousMoveProvider = (GameObject) locomotionSystem.GetComponent<ActionBasedContinuousMoveProvider>();
-        GameObject continuousTurnProvider = locomotionSystem.GetComponent<ActionBasedContinuousTurnProvider>();
-        GameObject teleporationProvider = locomotionSystem.GetComponent<TeleportationProvider>();
-        GameObject snapTurnProvider = locomotionSystem.GetComponent<ActionBasedSnapTurnProvider>();
-        if (enableContinuousMovement)
-        {
-            continuousMoveProvider.SetActive(true);
-        }
-        else
-        {
+        
+        
+    }
 
-        }*/
+    public void EnableContinuousMovement(bool enableContinuousMovement)
+    {
+        ActionBasedContinuousMoveProvider continuousMoveProvider = locomotionSystem.GetComponent<ActionBasedContinuousMoveProvider>();
+        ActionBasedContinuousTurnProvider continuousTurnProvider = locomotionSystem.GetComponent<ActionBasedContinuousTurnProvider>();
+        TeleportationProvider teleporationProvider = locomotionSystem.GetComponent<TeleportationProvider>();
+        ActionBasedSnapTurnProvider snapTurnProvider = locomotionSystem.GetComponent<ActionBasedSnapTurnProvider>();
+
+        continuousMoveProvider.enabled = enableContinuousMovement;
+        continuousTurnProvider.enabled = enableContinuousMovement;
+        teleporationProvider.enabled = !enableContinuousMovement;
+        snapTurnProvider.enabled = !enableContinuousMovement;
     }
 
     void Update()
