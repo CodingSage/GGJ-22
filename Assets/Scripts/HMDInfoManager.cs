@@ -12,11 +12,11 @@ public class HMDInfoManager : MonoBehaviour
 
     void Start()
     {
-        if(!XRSettings.isDeviceActive)
+        if (!XRSettings.isDeviceActive)
         {
             Debug.Log("No headset detected");
         }
-        else if(XRSettings.isDeviceActive && !(XRSettings.loadedDeviceName == "Mock HMD" || XRSettings.loadedDeviceName == "MockHMD Display"))
+        else if (XRSettings.isDeviceActive && !(XRSettings.loadedDeviceName == "Mock HMD" || XRSettings.loadedDeviceName == "MockHMD Display"))
         {
             Debug.Log("Headset detected : " + XRSettings.loadedDeviceName);
             mockHMD.SetActive(false);
@@ -25,9 +25,6 @@ public class HMDInfoManager : MonoBehaviour
         {
             Debug.Log("Mock HMD active");
         }
-
-        
-        
     }
 
     public void EnableContinuousMovement(bool enableContinuousMovement)
@@ -41,10 +38,5 @@ public class HMDInfoManager : MonoBehaviour
         continuousTurnProvider.enabled = enableContinuousMovement;
         teleporationProvider.enabled = !enableContinuousMovement;
         snapTurnProvider.enabled = !enableContinuousMovement;
-    }
-
-    void Update()
-    {
-        
     }
 }
